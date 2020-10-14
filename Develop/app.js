@@ -50,6 +50,27 @@ function manager() {
     });
 };
 
-
+function team() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "memberChoice",
+            message: "Which type of member would you like to add?",
+            choices: [
+            "Engineer",
+            "Intern",
+            "I don't want to add more team members"
+            ]
+        }
+    ]).then(function(data){
+        if (data.memberChoice === "Engineer"){
+            console.log("Engineer");
+            engineer();
+        } else if (data.memberChoice === "Intern"){
+            console.log("Intern");
+            Intern();
+        } else (outputTeam());
+    });
+};
 
 

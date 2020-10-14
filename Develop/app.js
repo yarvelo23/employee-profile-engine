@@ -132,3 +132,12 @@ function intern() {
         team();
     });
 };
+
+function outputTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+}
+
+manager();

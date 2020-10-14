@@ -102,3 +102,33 @@ function engineer() {
         team();
     });
 };
+
+function intern() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "internName",
+            message: "What is the intern's name?"
+        },
+        {
+            type: "input",
+            name: "internId",
+            message: "What is the intern's ID?"
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What is the intern's email?"
+        },
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What is the intern's school?"
+        }
+    ]).then(function(data){
+        const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
+        teamMembers.push(intern);
+        emptyId.push(data.internId);
+        team();
+    });
+};

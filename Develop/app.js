@@ -10,36 +10,18 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
-// creating an empty array of team members that accepts input
-const teamMembers = [];
-const emptyId = [];
-
-// questions array to gather manager's information first
-const managerPrompt = [
+const questions = [
     {
         type: "input",
-        name: "nameManager",
-        message: "What is the manager's name?"
-    },
-    {
-        type: "input",
-        name: "managerId",
-        message: "What is the manager's ID?"
-    },
-    {
-        type: "input",
-        name: "emailManager",
-        message: "What is the manager's email?"
-    },
-    {
-        type: "input",
-        name: "officeNumber",
-        message: "What is the manager's office number?"
+        name: "name",
+        message: "What is your name?"
     }
-
-
 ];
+
+inquirer.prompt(questions).then(function(data){
+    console.log(data.name);
+})
+
 
 
 
